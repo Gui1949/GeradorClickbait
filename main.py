@@ -46,7 +46,7 @@ class Main(Screen):
 
         frase_tela = frase_tela.upper()
         self.manager.get_screen('frase_gerada').ids.lbl_frase.text = frase_tela
-        self.manager.current = 'frase_gerada'                     
+        self.manager.current = 'frase_gerada'                
 
 class frase_gerada(Screen):
         pass     

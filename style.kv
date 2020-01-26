@@ -16,7 +16,7 @@
 
             GridLayout:
                 id: header
-                cols:3
+                cols:2
                 bold: True
                 pos_hint: {'top':0}
                 size_hint_y: .098
@@ -28,13 +28,26 @@
                     background_down: ''
                     color: get_color_from_hex('#000000')
                     background_color: get_color_from_hex('#2196F3')
-                    size_hint_x: .3
+                    size_hint_x: .15
 
                     StackLayout:
                         pos: self.parent.pos
                         size: self.parent.size
                         orientation: 'lr-tb'
-                        padding: [10,0,10,0]
+                        Image:
+                            source: 'img/logo.png'
+
+                Button:
+                    bold: True
+                    background_normal: ''
+                    background_down: ''
+                    color: get_color_from_hex('#000000')
+                    background_color: get_color_from_hex('#2196F3')
+
+                    StackLayout:
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        orientation: 'lr-tb'
                         Label:
                             bold: True
                             text_size:self.size
@@ -123,7 +136,7 @@
 
             GridLayout:
                 id: header
-                cols:3
+                cols:2
                 bold: True
                 pos_hint: {'top':0}
                 size_hint_y: .098
@@ -135,13 +148,26 @@
                     background_down: ''
                     color: get_color_from_hex('#000000')
                     background_color: get_color_from_hex('#2196F3')
-                    size_hint_x: .3
+                    size_hint_x: .15
 
                     StackLayout:
                         pos: self.parent.pos
                         size: self.parent.size
                         orientation: 'lr-tb'
-                        padding: [10,0,10,0]
+                        Image:
+                            source: 'img/logo.png'
+
+                Button:
+                    bold: True
+                    background_normal: ''
+                    background_down: ''
+                    color: get_color_from_hex('#000000')
+                    background_color: get_color_from_hex('#2196F3')
+
+                    StackLayout:
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        orientation: 'lr-tb'
                         Label:
                             bold: True
                             text_size:self.size
@@ -191,10 +217,16 @@
                             background_normal: ''
                             background_color: get_color_from_hex('#0288D1')  
                             on_press:
+                                root.manager.get_screen('main').frase()
+
+                        Button:
+                            text: 'Voltar ao Menu'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
                                 root.manager.current = 'main'        
                                 root.manager.transition.direction = 'right'
-
-                    Label:
 
                     Label:
                         text: 'PatNet Corporation, 2020'                                          
@@ -209,5 +241,6 @@
                 spacing:0
                 Button:
                     background_normal: ''
+                    background_down: ''
                     background_color: get_color_from_hex('#212121')
          
