@@ -70,11 +70,11 @@
                         spacing: 12
                         size_hint_y: None
                         cols: 1
-                        row_default_height: root.height*0.2
+                        row_default_height: root.height*0.3
                         height: self.minimum_height
                         
                         Label:
-                            text: 'Toque no botão abaixo para gerar uma frase [b]FODA[/b] de Clickbait'
+                            text: 'Toque em algum dos botões abaixo para gerar uma frase [b]FODA[/b] de Clickbait'
                             markup: True
                             text_size:self.size
                             color: get_color_from_hex('#212121')
@@ -83,20 +83,46 @@
 
                     GridLayout:
                         id: btn_gerar
-                        padding: [120,10,120,10]
+                        padding: [40,10,40,10]
                         spacing: 12
                         size_hint_y: None
-                        cols: 1
+                        cols: 2
                         row_default_height: root.height*0.1
                         height: self.minimum_height
-
                         Button:
-                            text: 'GERAR'
+                            text: '24 HORAS'
                             bold: True
                             background_normal: ''
                             background_color: get_color_from_hex('#0288D1')  
                             on_press:
-                                root.frase()     
+                                root.frase_horas()     
+                                root.manager.transition.direction = 'left'
+
+                        Button:
+                            text: 'REACT'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
+                                root.frase_react()     
+                                root.manager.transition.direction = 'left'
+
+                        Button:
+                            text: 'DESAFIO'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
+                                root.frase_desafio()     
+                                root.manager.transition.direction = 'left'
+
+                        Button:
+                            text: 'TROLAGE'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
+                                root.frase_trolage()     
                                 root.manager.transition.direction = 'left'
 
                     Label:
@@ -212,12 +238,15 @@
                         height: self.minimum_height
 
                         Button:
-                            text: 'Gerar Outra'
                             bold: True
+                            id: gerar_outra
                             background_normal: ''
                             background_color: get_color_from_hex('#0288D1')  
-                            on_press:
-                                root.manager.get_screen('main').frase()
+                            on_press:                               
+                                if self.text == 'Mais Frases de Desafio': root.manager.get_screen('main').frase_desafio()
+                                if self.text == 'Mais Frases de 24 Horas': root.manager.get_screen('main').frase_horas()
+                                if self.text == 'Mais Frases de React': root.manager.get_screen('main').frase_react()
+                                if self.text == 'Mais Frases de Trolage': root.manager.get_screen('main').frase_trolage()
 
                         Button:
                             text: 'Voltar ao Menu'
@@ -229,7 +258,7 @@
                                 root.manager.transition.direction = 'right'
 
                     Label:
-                        text: 'PatNet Corporation, 2020'                                          
+                        text: 'Patnet Corporation, 2020'                                    
                         color: get_color_from_hex('#212121')
 
             GridLayout:
