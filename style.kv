@@ -1,0 +1,213 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+ 
+<Main>:
+    name: 'main'
+    FloatLayout:
+        id: layout1
+        canvas.before:
+            Color:
+                rgba: get_color_from_hex('#FFFFFF')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+            index:0
+
+            GridLayout:
+                id: header
+                cols:3
+                bold: True
+                pos_hint: {'top':0}
+                size_hint_y: .098
+                spacing:0
+
+                Button:
+                    bold: True
+                    background_normal: ''
+                    background_down: ''
+                    color: get_color_from_hex('#000000')
+                    background_color: get_color_from_hex('#2196F3')
+                    size_hint_x: .3
+
+                    StackLayout:
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        orientation: 'lr-tb'
+                        padding: [10,0,10,0]
+                        Label:
+                            bold: True
+                            text_size:self.size
+                            color: get_color_from_hex('#ffffff')
+                            halign:'left'
+                            valign:'middle'
+                            text: 'Gerador de frases Clickbait'
+
+            ScrollView:
+                size: self.size
+                index:9
+
+                GridLayout:
+                    id: master
+                    cols: 1
+
+                    GridLayout:
+                        id: content
+                        padding: [40,10,40,10]
+                        spacing: 12
+                        size_hint_y: None
+                        cols: 1
+                        row_default_height: root.height*0.2
+                        height: self.minimum_height
+                        
+                        Label:
+                            text: 'Toque no botão abaixo para gerar uma frase [b]FODA[/b] de Clickbait'
+                            markup: True
+                            text_size:self.size
+                            color: get_color_from_hex('#212121')
+                            halign:'center'
+                            valign:'middle'
+
+                    GridLayout:
+                        id: btn_gerar
+                        padding: [120,10,120,10]
+                        spacing: 12
+                        size_hint_y: None
+                        cols: 1
+                        row_default_height: root.height*0.1
+                        height: self.minimum_height
+
+                        Button:
+                            text: 'GERAR'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
+                                root.frase()     
+                                root.manager.transition.direction = 'left'
+
+                    Label:
+
+                    Label:
+
+
+            GridLayout:
+                background_normal: ''
+                cols:1
+                bold: True
+                pos_hint: {'bottom':0}
+                size_hint_y: .098
+                spacing:0
+                Button:
+                    background_normal: ''
+                    background_color: get_color_from_hex('#212121')
+                    text: 'Sair'
+                    bold: True
+                    color: get_color_from_hex('#ffffff')
+                    on_press:
+                        app.get_running_app().stop()     
+
+<frase_gerada>:
+    name: 'frase_gerada'
+    FloatLayout:
+        id: layout1
+        canvas.before:
+            Color:
+                rgba: get_color_from_hex('#FFFFFF')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: 'vertical'
+            index:0
+
+            GridLayout:
+                id: header
+                cols:3
+                bold: True
+                pos_hint: {'top':0}
+                size_hint_y: .098
+                spacing:0
+
+                Button:
+                    bold: True
+                    background_normal: ''
+                    background_down: ''
+                    color: get_color_from_hex('#000000')
+                    background_color: get_color_from_hex('#2196F3')
+                    size_hint_x: .3
+
+                    StackLayout:
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        orientation: 'lr-tb'
+                        padding: [10,0,10,0]
+                        Label:
+                            bold: True
+                            text_size:self.size
+                            color: get_color_from_hex('#ffffff')
+                            halign:'left'
+                            valign:'middle'
+                            text: 'Gerador de frases Clickbait'
+
+            ScrollView:
+                size: self.size
+                index:9
+
+                GridLayout:
+                    id: master
+                    cols: 1
+
+                    GridLayout:
+                        id: content
+                        padding: [40,10,40,10]
+                        spacing: 12
+                        size_hint_y: None
+                        cols: 1
+                        row_default_height: root.height*0.2
+                        height: self.minimum_height
+                        
+                        Label:
+                            id: lbl_frase
+                            text: ''
+                            markup: True
+                            text_size:self.size
+                            color: get_color_from_hex('#212121')
+                            halign:'center'
+                            valign:'middle'
+
+                    GridLayout:
+                        id: btn_geraroutra
+                        padding: [120,10,120,10]
+                        spacing: 12
+                        size_hint_y: None
+                        cols: 1
+                        row_default_height: root.height*0.1
+                        height: self.minimum_height
+
+                        Button:
+                            text: 'Gerar Outra'
+                            bold: True
+                            background_normal: ''
+                            background_color: get_color_from_hex('#0288D1')  
+                            on_press:
+                                root.manager.current = 'main'        
+                                root.manager.transition.direction = 'right'
+
+                    Label:
+
+                    Label:
+                        text: 'PatNet Corporation, 2020'                                          
+                        color: get_color_from_hex('#212121')
+
+            GridLayout:
+                background_normal: ''
+                cols:1
+                bold: True
+                pos_hint: {'bottom':0}
+                size_hint_y: .098
+                spacing:0
+                Button:
+                    background_normal: ''
+                    background_color: get_color_from_hex('#212121')
+         
